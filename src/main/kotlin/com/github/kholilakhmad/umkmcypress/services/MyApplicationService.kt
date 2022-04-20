@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.kholilakhmad.umkmcypress.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.kholilakhmad.umkmcypress.MyBundle
 
 class MyApplicationService {
 
