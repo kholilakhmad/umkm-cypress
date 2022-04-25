@@ -5,6 +5,7 @@ pipeline {
       image 'cypress/base:10'
     }
   }
+  tools {nodejs "NodeJS.18"}
 
   stages {
     stage('build and test') {
@@ -17,6 +18,7 @@ pipeline {
       }
 
       steps {
+        sh 'npm i'
         sh 'npm ci'
         sh "npm run test:ci:record"
       }
