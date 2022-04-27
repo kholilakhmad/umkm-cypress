@@ -1,0 +1,26 @@
+{
+  "name": "umkm-cypress",
+  "version": "1.0.0",
+  "description": "![Build](https://github.com/kholilakhmad/umkm-cypress/workflows/Build/badge.svg)\r [![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)\r [![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)",
+  "main": "index.js",
+  "dependencies": {
+    "ci": "^2.1.1",
+    "cypress": "^9.5.4"
+  },
+  "devDependencies": {
+    "cypress-xpath": "^1.6.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kholilakhmad/umkm-cypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kholilakhmad/umkm-cypress/issues"
+  },
+  "homepage": "https://github.com/kholilakhmad/umkm-cypress#readme"
+}
