@@ -1,6 +1,7 @@
 describe('Cek field sarch, filter dan total data perpagge', () => {
     beforeEach( () =>{
-        Cypress.Commands.add(login)
+        cy.login('ESSDEV005','HFw3O3o98J')
+        cy.title('Linovhr')
     })
     it ( 'Menampilkan halaman reimburse', function () {
         cy.get('[id="Menu-Penggantian"]').click()
@@ -8,7 +9,7 @@ describe('Cek field sarch, filter dan total data perpagge', () => {
         cy.url().should('contain', 'https://dev-ess-umkm.linovhr.com/reimburse/request/reimburse-request')
         cy.wait(500)
     } );
-    it ( 'Mengecek field searh ', function () {
+    it ( 'Mengecek field search ', function () {
         cy.get('[id="Menu-Penggantian"]').click()
         cy.get('[id="Menu-Penggantian-Pengajuan"]').click()
         cy.url().should('contain', 'https://dev-ess-umkm.linovhr.com/reimburse/request/reimburse-request')
