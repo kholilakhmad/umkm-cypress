@@ -31,4 +31,9 @@ Cypress.Commands.add('login', (username, password) => {
     cy.get('[id="password"]').type(password)
     cy.get('[id="buttonMasuk"]').click()
 })
+Cypress.Commands.add('kehadiran', () => {
+    cy.get('[id="Menu-Kehadiran"]').click()
+    cy.get('[id="Menu-Kehadiran-Pengajuan"]').click()
+    cy.url().should('contain', 'https://dev-ess-umkm.linovhr.com/time/request')
+})
 // Cypress.Commands.overwrite('visit', (orig, url, options) => {})

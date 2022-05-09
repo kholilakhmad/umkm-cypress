@@ -1,0 +1,68 @@
+describe('Menu Kehadiran positive case', () => {
+    beforeEach( () =>{
+        cy.login('ESSDEV005','HFw3O3o98J')
+        cy.title('Linovhr')
+    })
+    it('Menampilkan halaman daftar pengajuan', () => {
+        cy.kehadiran()
+    });
+    it('Test inquiry', () => {
+        cy.kehadiran()
+        cy.get('input[formcontrolname="inquiry"]').type('Lembur{enter}')
+        cy.wait(500)
+        cy.get('input[formcontrolname="inquiry"]').clear().type('mules{enter}').clear()
+        cy.get('[id="search-approval"]').click()
+        cy.get('li[aria-label="Menunggu"]').click()
+        cy.wait(500)
+        cy.get('[id="search-approval"]').click()
+        cy.get('li[aria-label="Semua"]').click()
+        cy.wait(500)
+        cy.get('[id="search-approval"]').click()
+        cy.get('li[aria-label="Disetujui"]').click()
+        cy.wait(500)
+        cy.get('[id="search-approval"]').click()
+        cy.get('li[aria-label="Ditolak"]').click()
+        cy.wait(500)
+        cy.get('[id="search-date"]').click()
+        cy.contains('10').click()
+    });
+    it('Tambah pengajuan cuti', () => {
+        cy.kehadiran()
+        cy.get('[id="buttonPengajuan"]').click()
+        cy.url().should('contain', 'https://dev-ess-umkm.linovhr.com/time/request/add')
+        cy.get('p-dropdown[optionlabel="value"]').click().type('Cuti')
+        cy.get('[id="reason"]').type('Test cuti')
+        cy.get('[id="startDate"]').click()
+        cy.contains('24').click()
+        cy.get('[id="endDate"]').click()
+        cy.contains('25').click()
+        cy.get('[id="buttonSimpan"]').eq(0).click()
+        cy.url().should('contain','https://dev-ess-umkm.linovhr.com/time/request')
+    });
+    it('Tambah pengajuan lembur', () => {
+        cy.kehadiran()
+        cy.get('[id="buttonPengajuan"]').click()
+        cy.url().should('contain', 'https://dev-ess-umkm.linovhr.com/time/request/add')
+        cy.get('p-dropdown[optionlabel="value"]').click().type('Lembur')
+        cy.get('[id="reason"]').type('Test lembur')
+        cy.get('[id="startDate"]').click()
+        cy.contains('10').click()
+        cy.get('[id="endDate"]').click()
+        cy.contains('15').click()
+        cy.get('[id="buttonSimpan"]').eq(0).click()
+        cy.url().should('contain','https://dev-ess-umkm.linovhr.com/time/request')
+    });
+    it('Tambah pengajuan izin', () => {
+        cy.kehadiran()
+        cy.get('[id="buttonPengajuan"]').click()
+        cy.url().should('contain', 'https://dev-ess-umkm.linovhr.com/time/request/add')
+        cy.get('p-dropdown[optionlabel="value"]').click().type('Izin')
+        cy.get('[id="reason"]').type('Test Izin')
+        cy.get('[id="startDate"]').click()
+        cy.contains('10').click()
+        cy.get('[id="endDate"]').click()
+        cy.contains('10').click()
+        cy.get('[id="buttonSimpan"]').eq(0).click()
+        cy.url().should('contain','https://dev-ess-umkm.linovhr.com/time/request')
+    });
+})
